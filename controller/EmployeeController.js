@@ -35,6 +35,7 @@ exports.createEmployee = [logo.single('LogoImage'), catchAsync(async (req, res) 
 // Get Employee
 exports.GetEmployee = catchAsync(async (req, res, next) => {
     const emp = await EmployeeModel.find();
+    
     res.status(200).json({
         count: emp.length,
         data: emp
@@ -47,6 +48,9 @@ exports.GetEmployeeById = catchAsync(async (req, res, next) => {
         return null
     }
     const emp = await EmployeeModel.findById(req.params.id);
+    if (req.params.id === 0) {
+        return null
+    }
     if (!emp) {
         return next(new AppError("Id is not valid", 400));
     }
