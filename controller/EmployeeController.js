@@ -27,7 +27,7 @@ exports.createEmployee = [logo.single('LogoImage'), catchAsync(async (req, res) 
         })
     }
     else {
-        return next(new AppError("Insertion failed", 404))
+        return next(new AppError("Insertion failed", 500))
     }
 })]
 
@@ -43,6 +43,9 @@ exports.GetEmployee = catchAsync(async (req, res, next) => {
 
 // Get Employee By Id
 exports.GetEmployeeById = catchAsync(async (req, res, next) => {
+    if (req.params.id === 0) {
+        return null
+    }
     const emp = await EmployeeModel.findById(req.params.id);
     if (!emp) {
         return next(new AppError("Id is not valid", 400));
