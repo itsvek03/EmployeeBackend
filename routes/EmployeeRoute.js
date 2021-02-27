@@ -12,6 +12,6 @@ EmployeeRouter
     .route('/:id')
     .get(EmployeeController.GetEmployeeById)
     .patch(EmployeeController.updateEmployee)
-    .delete(EmployeeController.DeleteEmployeeById)
+
 
 module.exports = EmployeeRouter
