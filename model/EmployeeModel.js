@@ -5,6 +5,7 @@ const validator = require("validator");
 // Creating the schema
 
 const EmployeeSchema = new mongoose.Schema({
+
     CompanyName: {
         type: String,
         unique: [true, "Company Name is already exists"],
@@ -45,7 +46,7 @@ const EmployeeSchema = new mongoose.Schema({
         required: [true, "Insert the state Location"],
     },
     City: {
-        type: Array,
+        type: String,
         required: [true, "Insert the cities"]
     }
 })
