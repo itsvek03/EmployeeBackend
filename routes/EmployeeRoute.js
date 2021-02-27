@@ -1,6 +1,6 @@
 const EmployeeController = require('../controller/EmployeeController')
-const express = require('express')
-const EmployeeRouter = express.Router();
+const exp = require('express')
+const EmployeeRouter = exp.Router();
 
 
 EmployeeRouter
